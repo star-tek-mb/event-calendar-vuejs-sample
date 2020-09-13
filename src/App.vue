@@ -1,19 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <EventCalendar :event-groups="eventGroups" :event-objects="eventObjects" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import EventCalendar from "./components/EventCalendar.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    EventCalendar,
+  },
+  data: function () {
+    return {
+      eventGroups: ['room1', 'room2', 'room3'],
+      eventObjects: [
+        {
+          id: 1,
+          group: "room1",
+          color: "purple",
+          date_start: new Date(2020, 8, 6, 12),
+          date_end: new Date(2020, 8, 10, 0)
+        },
+        {
+          id: 2,
+          group: "room2",
+          date_start: new Date(2020, 8, 6, 12),
+          date_end: new Date(2020, 10, 1, 12)
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
